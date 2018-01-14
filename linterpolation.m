@@ -1,5 +1,6 @@
 function [answer] = linterpolation(x1,y1,x3,y3,x2, y2, Q11, Q13, Q31, Q33)
-    %
+    % This script performs both linear and bilinear interpolation, depending on the number of arguments
+    % input to the script.
     %
     if nargin == 5     
    
@@ -14,13 +15,15 @@ function [answer] = linterpolation(x1,y1,x3,y3,x2, y2, Q11, Q13, Q31, Q33)
         if x3 == x1 || y3 == y1
            error("Must interpolate between different x and y points"); 
         end
-        denom = (x3 - x1)*(y3-y1);
-        answer = (                            ...
+        
+  
+        %
+        answer = (                           ...
                  ((x3 - x2)*(y3 - y2)*Q11)   ...
               +  ((x2 - x1)*(y3 - y2)*Q31)   ...
               +  ((x3 - x2)*(y2 - y3)*Q13)   ...
               +  ((x2 - x1)*(y2 - y1)*Q33)   ...
-                )/denom;
+                )/((x3 - x1)*(y3 - y1));
         
     else    
         error("Usage: linterpolation(x1,y1,x3,y3,x2)\n or linterpolation(x1,y1,x3,y3,x2, y2, Q11, Q13, Q31, Q33)");
