@@ -1,14 +1,15 @@
-function r = fixedpointit(g, p_p, eps, N)
+function r = fixedpointit(g, eps, N)
 %This function finds a root to arbitrary precision using the
-%fixed point iteration method. Ensure that the fixed point scheme satisfies
-%the convergence criteria.
+%fixed point iteration method
 %   g:      fixed point scheme of function
 %   eps:    tolerance 
-%   p_p:    initial guess
 %   N:      iteration limit
 %
 
-%p_n: Next point
+%------------------Prev Version------------%
+
+%p_p : Previous point
+p_p = .9;
 p_n = g(p_p);
 
 counter = 1;

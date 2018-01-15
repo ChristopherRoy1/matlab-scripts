@@ -4,7 +4,7 @@ function r = secant(f, r_0, r, eps, N)
 %
 %   f: target function
 %   r_0: initial/previous guess
-%   r = second guess/current guess
+%   r = second guess/
 %
 %
 %
