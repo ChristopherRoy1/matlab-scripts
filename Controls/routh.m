@@ -11,7 +11,7 @@ function [stability, rtable] = routh(coeffs)
         stability = 'unstable';             
     end
     
-    tol = 1.e-9; %error tolerance to check if an element is zero and avoid floating point errors
+    tol = 1.e-9; %error tolerance to check if an element is zero
     n = size(coeffs,2); % determine order of polynomial (n-1)
     
     rtable = zeros(n,floor(n/2)+1); %initialize the routh table
@@ -41,14 +41,12 @@ function [stability, rtable] = routh(coeffs)
     %    -the first column has no zero entries
     
     
-    if (any(rtable<0))
+    if (any(rtable(:) < 0))
         stability = 'unstable';
     elseif (any(abs(rtable(:,1)) <= tol))
         stability = 'unstable';     
     else
         stability = 'stable';
     end
-
-
 
 end
