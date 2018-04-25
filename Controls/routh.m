@@ -1,4 +1,4 @@
-function [stability, rtable] = routh(coeffs, toggle)
+function [stability, rtable] = routh(coeffs)
     % The function takes in the coefficients of a polynomial as an argument, and returns the stability of the polynomial
     % as well as the routh table.
     % By: Christopher Roy
